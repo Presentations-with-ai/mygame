@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Своя игра</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <button class="ghost-key" id="adminButton" aria-label="Доступ к ответам"></button>
+
+    <main class="game-shell">
+      <section class="title-screen" id="boardView">
+        <div class="game-title">
+          <h1>СВОЯ ИГРА</h1>
+        </div>
+
+        <div class="score-strip">
+          <div class="team-card active" id="teamOneCard">
+            <span>Команда 1</span>
+            <strong id="teamOneScore">0</strong>
+          </div>
+          <div class="turn-card" id="turnText">Ход: Команда 1</div>
+          <div class="team-card" id="teamTwoCard">
+            <span>Команда 2</span>
+            <strong id="teamTwoScore">0</strong>
+          </div>
+          <button id="resetButton" type="button">Сброс</button>
+        </div>
+
+        <div class="board" id="board"></div>
+      </section>
+
+      <section class="question-screen hidden" id="questionView" aria-live="polite">
+        <div class="question-head">
+          <button id="backButton" type="button">← Темы</button>
+          <div>
+            <p id="questionMeta"></p>
+            <h2 id="questionTitle"></h2>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p id="questionText">Загрузка...</p>
+        </div>
+
+        <div class="answer-card hidden" id="answerCard">
+          <span>Ответ</span>
+          <p id="answerText"></p>
+          <small id="answerNote"></small>
+        </div>
+
+        <div class="question-actions">
+          <button id="showAnswerButton" type="button">Узнать ответ</button>
+          <button id="correctButton" type="button">Зачесть</button>
+          <button id="wrongButton" type="button">Не зачесть</button>
+          <button id="doneButton" type="button">Вернуться к выбору тем →</button>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="adminDialog">
+      <form method="dialog" class="login-card">
+        <h2>Доступ</h2>
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Пароль">
+        <p class="login-error" id="loginError"></p>
+        <div class="dialog-actions">
+          <button value="cancel" type="submit">Отмена</button>
+          <button id="unlockButton" value="unlock" type="button">Войти</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
